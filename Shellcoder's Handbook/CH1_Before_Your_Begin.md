@@ -1,5 +1,3 @@
-# The Shellcoder's Handbook: Discovering and Exploiting Security Holes - Second Edition (ISBN 9780470080238)
-
 # Chapter 1 - Before You Begin
 Overview of concepts necessary to understand the rest of the book.  
 Sample code (fragments): https://www.wiley.com/go/shellcodershandbook
