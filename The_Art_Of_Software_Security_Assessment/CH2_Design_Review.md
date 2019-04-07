@@ -14,21 +14,17 @@ Abstraction = method for reducing the complexity of a system to make it more man
 
 Isolate the most important elements and remove unnecessary details. This enables you to establish hierachies of related systems, concepts, and processes.
 
-Decomposition (a.k.a. factoring) = process of defining the generalisations and classifications that compose an abstraction.
-
+Decomposition (a.k.a. factoring) = process of defining the generalisations and classifications that compose an abstraction.  
 * Top-down (a.k.a. specialisation): breaking up a larger system into smaller, more manageable parts.
-* Bottom-up (a.k.a. generalisation): identifying similarities in a number of components and developing a high-level abstraction that applies to all of them.
-
+* Bottom-up (a.k.a. generalisation): identifying similarities in a number of components and developing a high-level abstraction that applies to all of them.  
 Standard top-down decomposition progression: application, module, class, function.
-### Trust Relationships
-Trust relationship = trust associated with a communication between multiple parties.
 
+### Trust Relationships
+Trust relationship = trust associated with a communication between multiple parties.  
 Every communication has a trust relationship. Complete trust means complete access to the exposed functionality. For security purpposes, we are concerned with situations where trust needs to be resricted.
 
-Trust boundary = limitations imposed on each party in a communication that defines the limited subset of functionality that can be accessed.
-
-Trust domain = region of shared trust, distinguished by trust boundaries.
-
+Trust boundary = limitations imposed on each party in a communication that defines the limited subset of functionality that can be accessed.  
+Trust domain = region of shared trust, distinguished by trust boundaries.  
 Trust model = abstraction that accounts for a system's trust domains, boundaries, and relationships. It is a component of the application's security policy.
 
 Trust boundaries tend to be module boundaries.
@@ -51,6 +47,9 @@ SSL is an example of chain of trust. Any compromise of a CA can be used to imper
 Sometimes chain of trust is the only option, but an auditor needs to review the impact of this model and whether it is appropriate. It often results in complex and subtle trust relationships that attackers an exploit.
 
 #### Defence in Depth
+Defence in depth = layering protections so that the compromise of any component is mitigated by other controls.
+
+Layered defences can inform component piorities during the review.
 
 ### Principles of Software Design
 ### Fundamental Design Flaws 
