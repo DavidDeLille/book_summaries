@@ -1,7 +1,7 @@
 # Introduction
 Developers like design reviews because they map closely to formal software development methodologies. Code auditors think it just gets in the way of the real work. The process has value for both.  
 Design review is a tool for identifying architecture vulnerabilities and prioritising components for implementation review. It is part of the complete review process.
-## Software Design Fundamentals
+# Software Design Fundamentals
 ## Algorithms
 Software engineeering can be thought of as the process of developing and implementing algorithms. It focuses on developing key program algorithms and data structures, and specifying problem domain logic.
 ### Problem Domain Logic / Business Logic
