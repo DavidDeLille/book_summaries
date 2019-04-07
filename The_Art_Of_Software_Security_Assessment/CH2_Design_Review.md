@@ -36,9 +36,13 @@ Trust boundaries tend to be module boundaries.
 Privileges = degrees of trust (as opposed to absolute trust)
 
 #### Simple Trust Boundaries
+FIgure 2-1 shows the simple trust boundaries in a multi-user OS. The accompanying text describes this trust model.
 
+Every system needs an absolutely **trusted authority** (e.g. root/Administrator account), because someone needs to be responsile for the system.
 
 #### Complex Trust Boundaries
+
+
 #### Chain of Trust
 #### Defence in Depth
 
