@@ -41,9 +41,15 @@ FIgure 2-1 shows the simple trust boundaries in a multi-user OS. The accompanyin
 Every system needs an absolutely **trusted authority** (e.g. root/Administrator account), because someone needs to be responsile for the system.
 
 #### Complex Trust Boundaries
-
+Defining and applying a trust model has a huge impact on a software design. The feasibility study and requirements-gathering phases must adequately identify and define users' security expectations and the associated factors of the target environment. The trust model must be robust enough to meet these reqs, but not too complex to be implemented/applied.
 
 #### Chain of Trust
+Chain-of-trust relationship = transitive trust relationship (A trusts B, and B trusts C ==> A trusts C)
+
+SSL is an example of chain of trust. Any compromise of a CA can be used to impersonate any website.
+
+Sometimes chain of trust is the only option, but an auditor needs to review the impact of this model and whether it is appropriate. It often results in complex and subtle trust relationships that attackers an exploit.
+
 #### Defence in Depth
 
 ### Principles of Software Design
