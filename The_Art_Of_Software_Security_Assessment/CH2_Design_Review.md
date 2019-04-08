@@ -51,6 +51,12 @@ Defence in depth = layering protections so that the compromise of any component 
 Layered defences can inform component piorities during the review.
 
 ## Principles of Software Design
+
+### Accuracy
+### Clarity
+### Loose Coupling
+### Strong Cohesion
+
 ## Fundamental Design Flaws 
 # Enforcing Security Policy
 ## Authentication 
