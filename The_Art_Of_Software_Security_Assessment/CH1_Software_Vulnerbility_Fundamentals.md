@@ -94,7 +94,7 @@ Reasons why trust in interfaces can be misplaced:
 ## Environmental Attacks
 Software systems run as one or more programs supported by a larger computing environment, including OSes, hardware architectures, networks, file systems, databases, and users.
 Wrong assumptions or misunderstandings about the potential security issues of each technology in the underlying environment can cause vulnerabilities.  
-# Exceptional Conditions
+## Exceptional Conditions
 An exceptional condition occurs when an attacker can cause an unexpected change in the program's normal control flow via external means.
 # Summary
 Goals of the chapter: 
