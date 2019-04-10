@@ -51,13 +51,40 @@ Defence in depth = layering protections so that the compromise of any component 
 Layered defences can inform component piorities during the review.
 
 ## Principles of Software Design
-
+ Thre are many software development methodologies, but they share certain commonly accepted prinicples.
+ 
 ### Accuracy
-### Clarity
-### Loose Coupling
-### Strong Cohesion
+= How effectively design abstraction meet the associated requirements.  
+This includes both how closely the abstractions model the requirements and how easily they can be implemented.
 
-## Fundamental Design Flaws 
+Differences between a software design and the implementation indicate weaknesses in the design abstractions. When developers need to make assumptions outside the intended design, not communicating these assumptions can cause vulnerabilities. Look for inadequately defined design areas, or areas that place unreasonable expectations on programmers.
+
+### Clarity
+= How well the design decomposes the problem and how clean/self-evident the abstractions are.  
+This includes the quality of the documentation.
+
+Poor understanding of the design can lead to vulnerabilities similar to those of an inaccurate design. Look for complex or poorly documented design components (see also variable relatiknships in Chapter 7).
+
+### Loose Coupling
+Coupling = the level of communication between modules and exposure of their internal interface.  
+Loosely coupled modules have well-defined public interfaces.  
+Strongly coupled modules have complex interdependencies and expose important internal interfaces.
+
+Strongly coupled modules place a high degree of trust in each other and rarely perform data validation on their communication. Look for strong intermodule coupling across trust boundaries.
+
+### Strong Cohesion
+Cohesion = a module's internal consistency; primarily thr degree to which a module's interfaces handle a related set of activities.  
+A strongly cohesive module only handles closely realted activities.
+
+When a design fails to decompose modules along trust boundaries, vulnerabilites similar to those related to coupling occur, only within the same module. This happens when security is tacked onto a design at the end. Look for modules that have to operate in multiple trust domains.
+
+## Fundamental Design Flaws
+This section contains examples of these concepts affecting security. The categorisation is subjective, so focus on the security impact instead.
+
+### Exploiting Strong Coupling
+### Exploiting Transitive Trust
+### Failure Handling
+
 # Enforcing Security Policy
 ## Authentication 
 ## Authorization
