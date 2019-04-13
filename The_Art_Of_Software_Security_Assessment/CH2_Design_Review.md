@@ -73,7 +73,7 @@ Strongly coupled modules have complex interdependencies and expose important int
 Strongly coupled modules place a high degree of trust in each other and rarely perform data validation on their communication. Look for strong intermodule coupling across trust boundaries.
 
 ### Strong Cohesion
-Cohesion = a module's internal consistency; primarily thr degree to which a module's interfaces handle a related set of activities.  
+Cohesion = a module's internal consistency; primarily the degree to which a module's interfaces handle a related set of activities.  
 A strongly cohesive module only handles closely realted activities.
 
 When a design fails to decompose modules along trust boundaries, vulnerabilites similar to those related to coupling occur, only within the same module. This happens when security is tacked onto a design at the end. Look for modules that have to operate in multiple trust domains.
@@ -82,7 +82,13 @@ When a design fails to decompose modules along trust boundaries, vulnerabilites 
 This section contains examples of these concepts affecting security. The categorisation is subjective, so focus on the security impact instead.
 
 ### Exploiting Strong Coupling
+The Shatter class of vulneabilities stems from a failure to decompose a design along trust boundaries (more technical details in Chapter 12). Each Windows desktop has a single messaging queue to handle all GUI-related activities. The Windows SetTimer() function can be used to send a WM_TIMER message, which will invoke an abirary function pointer upon receipt by the default message handler. Using another Windows API that manipulates the content of window elements, it is possible to insert data in the address space of another process. Combining the delievry of arbitrary data and the call of a function, an attackr can execute arbitrary code in any process on the same desktop. This results in a privilege escalaton vulnerability.
+
+The messaging design was accurate, understandable, and strongly cohesive for a single-user OS. However, when used for a multi-user OS, the communication across a desktop must be considered an attack vector. In that context, the messaging queue strongly couples different trust domains, which results in vulnerabilities that exploit the desktop as a public interface. This vulnerability class illustrates the difficulty in adding security to an existing design.
+
 ### Exploiting Transitive Trust
+
+
 ### Failure Handling
 
 # Enforcing Security Policy
