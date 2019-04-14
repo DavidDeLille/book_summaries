@@ -82,12 +82,16 @@ When a design fails to decompose modules along trust boundaries, vulnerabilites 
 This section contains examples of these concepts affecting security. The categorisation is subjective, so focus on the security impact instead.
 
 ### Exploiting Strong Coupling
-The Shatter class of vulneabilities stems from a failure to decompose a design along trust boundaries (more technical details in Chapter 12). Each Windows desktop has a single messaging queue to handle all GUI-related activities. The Windows SetTimer() function can be used to send a WM_TIMER message, which will invoke an abirary function pointer upon receipt by the default message handler. Using another Windows API that manipulates the content of window elements, it is possible to insert data in the address space of another process. Combining the delievry of arbitrary data and the call of a function, an attackr can execute arbitrary code in any process on the same desktop. This results in a privilege escalaton vulnerability.
+The Shatter class of vulneabilities stems from a failure to decompose a design along trust boundaries (more technical details in Chapter 12). Each Windows desktop has a single messaging queue to handle all GUI-related activities. The Windows SetTimer() function can be used to send a WM_TIMER message, which will invoke an abirary function pointer upon receipt by the default message handler. Using another Windows API that manipulates the content of window elements (e.g. Clipboard), it is possible to insert data in the address space of another process. Combining the delivery of arbitrary data and the call of a function, an attacker can execute arbitrary code in any process on the same desktop. This results in a privilege escalaton vulnerability.
 
 The messaging design was accurate, understandable, and strongly cohesive for a single-user OS. However, when used for a multi-user OS, the communication across a desktop must be considered an attack vector. In that context, the messaging queue strongly couples different trust domains, which results in vulnerabilities that exploit the desktop as a public interface. This vulnerability class illustrates the difficulty in adding security to an existing design.
 
 ### Exploiting Transitive Trust
+Automountd is an RPC program on certain version of Solarist hat runs as root. It allows root to specify a command as part of a mounting operation. It only listens on three protected loopback transports and only accepts commands from root.
 
+Rpc.statd also runs as root and listens on TCP and UDP interfaces. It is meant to montior NFS servers and send out a notification if they go down.When it receives such a notification, it will contact a host and call an RPC program number.
+
+An attacker can tell rpc.statd that an NFS server has crashed and have it contact automountd on the local machine with an RPC message. With some manipulation, this message can be decoded as a valid automountd request. Since it is coming from root on the loopback interface, automountd trusts this message and executes the command. This attack exploits the implicit trust between all processes running under the same account. Automountd also is lenient in the messages it receives due to the perceived trust of the interface.
 
 ### Failure Handling
 
