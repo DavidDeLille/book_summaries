@@ -94,8 +94,16 @@ Rpc.statd also runs as root and listens on TCP and UDP interfaces. It is meant t
 An attacker can tell rpc.statd that an NFS server has crashed and have it contact automountd on the local machine with an RPC message. With some manipulation, this message can be decoded as a valid automountd request. Since it is coming from root on the loopback interface, automountd trusts this message and executes the command. This attack exploits the implicit trust between all processes running under the same account. Automountd also is lenient in the messages it receives due to the perceived trust of the interface.
 
 ### Failure Handling
+Proper failure handling is essential for a clear and accurate usability in a software design. Users expect that the application handles irregular conditions properly and provides information to resolve the issue. However, this level of usaility might be in oppsition to the security requirements.
+
+Usability dictates that a network application should attempt to recover from a fault and continue processing. If this isn't possible, detailed information about the error should be displayed.
+
+For a security standpoint, detection of a fault should terminate the client session with minimum feedback and log the details extensively. This approach assumes the fault is caused by an attacker. Working around the fault and continue processing would play into the attacker's hands. In this case, the security requirements supersede the usability requirements.
 
 # Enforcing Security Policy
+Chapter 1 discusses security expectations.
+
+
 ## Authentication 
 ## Authorization
 ## Accountability
