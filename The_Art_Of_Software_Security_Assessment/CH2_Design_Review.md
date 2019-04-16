@@ -101,11 +101,26 @@ Usability dictates that a network application should attempt to recover from a f
 For a security standpoint, detection of a fault should terminate the client session with minimum feedback and log the details extensively. This approach assumes the fault is caused by an attacker. Working around the fault and continue processing would play into the attacker's hands. In this case, the security requirements supersede the usability requirements.
 
 # Enforcing Security Policy
-Chapter 1 discusses security expectations.
-
+Chapter 1 discusses security expectations. A security policy is impemented by identifying and enforcing trust boundaries. Enforcement is broken up into six main types:
 
 ## Authentication 
+= Process of determining identity.  
+Not just for humans; also servers, components, etc.
+
+### Common Vulnerabilities
+* Lack of authentication: Not always obvious; perhaps an attacker can access a presumably internal interface. Best practice is to centralise the authentication in the design.
+* Untrustworthy credentials: E.g. client-side authentication. 
+  * The UNIX RPC daemon rexd (remote execution daemon) allows remote users to run programs as user they specify (not root); running /bin/sh as as user bin would lead to root.
+  * AUTH_UNIX authentication ask the client to provide a record of the user and their group ID. The defaukt installation of sadmind on Solaris allowed this scheme (www.securityfocus.com/bid/2354/info).
+  * Many daemons use source IP address to establish identity. UDP can be trivially spoofed. TCP can also be spoofed, intercepted, or hijacked. E.g. rshd, rlogind, and sshd can be configured to trust source IP.
+* Insufficient validation: 
+  * Not often in username/password authentication. More likely a design flaw in programmatic authentication bvetween systems. E.g. onyl authentication in one direction.
+  * Homemade authentication with cryptographic primitives is hard to get right. See example of FWN/1 protocol of Firewall-1.
+
 ## Authorization
+= Process of determining permissions based on identity.
+
+
 ## Accountability
 ## Confidentiality
 ## Integrity
