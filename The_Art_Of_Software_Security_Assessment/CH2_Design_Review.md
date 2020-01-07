@@ -120,6 +120,11 @@ Not just for humans; also servers, components, etc.
 ## Authorization
 = Process of determining permissions based on identity.
 
+Authentication and authorisation work together to form an access control policy: who is a user, and what are they permitted to do.
+Different types of access control: discretionary access control, mandatory access control, role-based access control.
+### Common Vulnerabilities
+* Lack of authorisation: Web applications often only perform proper authorisation checks on a small fraction of the application's functionality. The menu page contains authorisation logic, but the actual handler pages don't. This allows low-privileged users to access sensitive information or functionality.
+* Insecure authorisation: The authorisation logic may also allow abuse. Book contains an example of an expense-tracking system that uses insecure virtual managers. Users can choose their own virtual manager who can approve their expenses.
 
 ## Accountability
 ## Confidentiality
